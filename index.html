@@ -1,190 +1,2279 @@
 <!DOCTYPE html>
+2
 <html lang="en">
+3
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+4
+<meta charset="UTF-8"/>
+5
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+6
+<meta name="description" content="Mokshada Joshi — AI Product Manager & Technical Project Manager with 4+ years delivering GenAI applications, ML systems, and enterprise platforms."/>
+7
 <title>Mokshada Joshi | AI Product Manager</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
+8
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+9
 <style>
+10
+/* ── RESET & TOKENS ── */
+11
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+12
+:root {
+13
+  --navy:   #0f1f3d;
+14
+  --navy2:  #162850;
+15
+  --gold:   #c9951a;
+16
+  --gold-lt:#f0c050;
+17
+  --white:  #ffffff;
+18
+  --bg:     #f7f6f3;
+19
+  --bg2:    #eeecea;
+20
+  --text:   #1c1c1e;
+21
+  --muted:  #5a5a6a;
+22
+  --border: #dddbd6;
+23
+  --card:   #ffffff;
+24
+  --radius: 10px;
+25
+  --shadow: 0 2px 16px rgba(15,31,61,0.08);
+26
+  --shadow-lg: 0 8px 40px rgba(15,31,61,0.13);
+27
+  --sidebar: 260px;
+28
+  --transition: 0.25s ease;
+29
+}
+30
+ 
+31
+html { scroll-behavior: smooth; font-size: 16px; }
+32
+ 
+33
 body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: #0b0b12;
-  color: #f5f5f5;
-  line-height: 1.6;
+34
+  font-family: 'Plus Jakarta Sans', sans-serif;
+35
+  background: var(--bg);
+36
+  color: var(--text);
+37
+  line-height: 1.65;
+38
+  -webkit-font-smoothing: antialiased;
+39
 }
-
-.container {
-  max-width: 1000px;
-  margin: auto;
-  padding: 40px 20px;
+40
+ 
+41
+/* ── SIDEBAR LAYOUT ── */
+42
+.layout { display: flex; min-height: 100vh; }
+43
+ 
+44
+/* ── SIDEBAR ── */
+45
+.sidebar {
+46
+  width: var(--sidebar);
+47
+  background: var(--navy);
+48
+  position: fixed;
+49
+  top: 0; left: 0; bottom: 0;
+50
+  display: flex;
+51
+  flex-direction: column;
+52
+  padding: 36px 28px 28px;
+53
+  z-index: 100;
+54
+  overflow-y: auto;
+55
 }
-
-h1, h2 {
-  color: #ffffff;
+56
+ 
+57
+.sidebar-name {
+58
+  font-family: 'Lora', serif;
+59
+  font-size: 19px;
+60
+  font-weight: 600;
+61
+  color: var(--white);
+62
+  line-height: 1.25;
+63
+  margin-bottom: 4px;
+64
 }
-
-h1 {
-  font-size: 40px;
+65
+.sidebar-role {
+66
+  font-size: 11px;
+67
+  font-weight: 400;
+68
+  color: var(--gold-lt);
+69
+  letter-spacing: 0.08em;
+70
+  text-transform: uppercase;
+71
+  margin-bottom: 32px;
+72
+  line-height: 1.5;
+73
 }
-
-h2 {
-  margin-top: 50px;
-  border-bottom: 1px solid #333;
-  padding-bottom: 10px;
-}
-
-p {
-  color: #cfcfcf;
-}
-
-.highlight {
-  color: #d4a843;
-}
-
-.btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 20px;
-  border: 1px solid #d4a843;
-  color: #d4a843;
+74
+ 
+75
+.sidebar-nav { flex: 1; }
+76
+.sidebar-nav a {
+77
+  display: flex;
+78
+  align-items: center;
+79
+  gap: 10px;
+80
+  padding: 9px 12px;
+81
+  border-radius: 6px;
+82
+  font-size: 13px;
+83
+  font-weight: 500;
+84
+  color: rgba(255,255,255,0.6);
+85
   text-decoration: none;
-  margin-right: 10px;
+86
+  transition: all var(--transition);
+87
+  margin-bottom: 2px;
+88
+  letter-spacing: 0.02em;
+89
 }
-
-.btn:hover {
-  background: #d4a843;
-  color: black;
+90
+.sidebar-nav a:hover,
+91
+.sidebar-nav a.active {
+92
+  background: rgba(255,255,255,0.08);
+93
+  color: var(--white);
+94
 }
-
-.card {
-  background: #151521;
-  padding: 20px;
-  margin-top: 20px;
-  border-radius: 8px;
+95
+.sidebar-nav a.active { color: var(--gold-lt); }
+96
+.nav-dot {
+97
+  width: 5px; height: 5px;
+98
+  border-radius: 50%;
+99
+  background: currentColor;
+100
+  flex-shrink: 0;
+101
+  opacity: 0.5;
+102
+  transition: opacity var(--transition);
+103
 }
-
-ul {
-  padding-left: 20px;
+104
+.sidebar-nav a.active .nav-dot,
+105
+.sidebar-nav a:hover .nav-dot { opacity: 1; }
+106
+ 
+107
+.sidebar-links {
+108
+  margin-top: 28px;
+109
+  padding-top: 24px;
+110
+  border-top: 1px solid rgba(255,255,255,0.08);
+111
+  display: flex;
+112
+  flex-direction: column;
+113
+  gap: 10px;
+114
 }
-
-footer {
+115
+.sidebar-links a {
+116
+  display: flex;
+117
+  align-items: center;
+118
+  gap: 9px;
+119
+  font-size: 12px;
+120
+  color: rgba(255,255,255,0.5);
+121
+  text-decoration: none;
+122
+  transition: color var(--transition);
+123
+  font-weight: 400;
+124
+}
+125
+.sidebar-links a:hover { color: var(--gold-lt); }
+126
+.sidebar-links svg { flex-shrink: 0; }
+127
+ 
+128
+/* ── MOBILE NAV ── */
+129
+.mobile-nav {
+130
+  display: none;
+131
+  position: fixed;
+132
+  top: 0; left: 0; right: 0;
+133
+  background: var(--navy);
+134
+  padding: 14px 20px;
+135
+  z-index: 200;
+136
+  align-items: center;
+137
+  justify-content: space-between;
+138
+}
+139
+.mobile-nav-name {
+140
+  font-family: 'Lora', serif;
+141
+  font-size: 17px;
+142
+  color: var(--white);
+143
+  font-weight: 600;
+144
+}
+145
+.hamburger {
+146
+  background: none;
+147
+  border: none;
+148
+  cursor: pointer;
+149
+  display: flex;
+150
+  flex-direction: column;
+151
+  gap: 5px;
+152
+  padding: 4px;
+153
+}
+154
+.hamburger span {
+155
+  display: block;
+156
+  width: 22px; height: 2px;
+157
+  background: var(--white);
+158
+  border-radius: 2px;
+159
+  transition: all 0.3s;
+160
+}
+161
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+162
+.hamburger.open span:nth-child(2) { opacity: 0; }
+163
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+164
+ 
+165
+.mobile-menu {
+166
+  display: none;
+167
+  position: fixed;
+168
+  top: 52px; left: 0; right: 0;
+169
+  background: var(--navy2);
+170
+  z-index: 199;
+171
+  padding: 16px 0;
+172
+  box-shadow: var(--shadow-lg);
+173
+}
+174
+.mobile-menu.open { display: block; }
+175
+.mobile-menu a {
+176
+  display: block;
+177
+  padding: 12px 24px;
+178
+  font-size: 14px;
+179
+  font-weight: 500;
+180
+  color: rgba(255,255,255,0.8);
+181
+  text-decoration: none;
+182
+  transition: background var(--transition);
+183
+}
+184
+.mobile-menu a:hover { background: rgba(255,255,255,0.06); color: var(--gold-lt); }
+185
+ 
+186
+/* ── MAIN CONTENT ── */
+187
+.main {
+188
+  margin-left: var(--sidebar);
+189
+  flex: 1;
+190
+  min-width: 0;
+191
+}
+192
+ 
+193
+/* ── HERO ── */
+194
+.hero {
+195
+  background: var(--navy);
+196
+  padding: 72px 60px 60px;
+197
+  position: relative;
+198
+  overflow: hidden;
+199
+}
+200
+.hero::before {
+201
+  content: '';
+202
+  position: absolute;
+203
+  top: -80px; right: -80px;
+204
+  width: 400px; height: 400px;
+205
+  background: radial-gradient(circle, rgba(201,149,26,0.12) 0%, transparent 65%);
+206
+  pointer-events: none;
+207
+}
+208
+.hero::after {
+209
+  content: '';
+210
+  position: absolute;
+211
+  bottom: 0; left: 0; right: 0;
+212
+  height: 1px;
+213
+  background: linear-gradient(to right, transparent, rgba(201,149,26,0.3), transparent);
+214
+}
+215
+ 
+216
+.hero-eyebrow {
+217
+  font-size: 11px;
+218
+  font-weight: 600;
+219
+  letter-spacing: 0.18em;
+220
+  text-transform: uppercase;
+221
+  color: var(--gold);
+222
+  margin-bottom: 18px;
+223
+  display: flex;
+224
+  align-items: center;
+225
+  gap: 10px;
+226
+}
+227
+.hero-eyebrow::before {
+228
+  content: '';
+229
+  width: 28px; height: 2px;
+230
+  background: var(--gold);
+231
+  border-radius: 2px;
+232
+}
+233
+ 
+234
+.hero-name {
+235
+  font-family: 'Lora', serif;
+236
+  font-size: clamp(38px, 5vw, 58px);
+237
+  font-weight: 600;
+238
+  color: var(--white);
+239
+  line-height: 1.1;
+240
+  margin-bottom: 14px;
+241
+  letter-spacing: -0.01em;
+242
+}
+243
+ 
+244
+.hero-titles {
+245
+  display: flex;
+246
+  flex-wrap: wrap;
+247
+  gap: 10px;
+248
+  margin-bottom: 24px;
+249
+}
+250
+.title-badge {
+251
+  font-size: 12px;
+252
+  font-weight: 600;
+253
+  letter-spacing: 0.06em;
+254
+  text-transform: uppercase;
+255
+  padding: 5px 14px;
+256
+  border: 1px solid rgba(201,149,26,0.4);
+257
+  border-radius: 4px;
+258
+  color: var(--gold-lt);
+259
+}
+260
+ 
+261
+.hero-desc {
+262
+  font-size: 15.5px;
+263
+  color: rgba(255,255,255,0.68);
+264
+  max-width: 580px;
+265
+  line-height: 1.75;
+266
+  margin-bottom: 36px;
+267
+  font-weight: 300;
+268
+}
+269
+ 
+270
+.hero-stats {
+271
+  display: grid;
+272
+  grid-template-columns: repeat(4, 1fr);
+273
+  gap: 1px;
+274
+  background: rgba(255,255,255,0.08);
+275
+  border-radius: 10px;
+276
+  overflow: hidden;
+277
+  max-width: 600px;
+278
+  margin-bottom: 36px;
+279
+}
+280
+.hero-stat {
+281
+  background: rgba(255,255,255,0.04);
+282
+  padding: 20px 18px;
+283
   text-align: center;
-  margin-top: 50px;
-  color: #777;
+284
+  transition: background var(--transition);
+285
 }
+286
+.hero-stat:hover { background: rgba(255,255,255,0.08); }
+287
+.stat-num {
+288
+  font-family: 'Lora', serif;
+289
+  font-size: 28px;
+290
+  font-weight: 600;
+291
+  color: var(--gold-lt);
+292
+  line-height: 1;
+293
+  margin-bottom: 5px;
+294
+}
+295
+.stat-lbl {
+296
+  font-size: 10px;
+297
+  font-weight: 500;
+298
+  color: rgba(255,255,255,0.45);
+299
+  letter-spacing: 0.06em;
+300
+  text-transform: uppercase;
+301
+  line-height: 1.3;
+302
+}
+303
+ 
+304
+.hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+305
+.btn-primary {
+306
+  padding: 12px 28px;
+307
+  background: var(--gold);
+308
+  color: var(--navy);
+309
+  font-weight: 700;
+310
+  font-size: 13px;
+311
+  letter-spacing: 0.04em;
+312
+  text-decoration: none;
+313
+  border-radius: 6px;
+314
+  transition: all var(--transition);
+315
+  display: inline-block;
+316
+}
+317
+.btn-primary:hover { background: var(--gold-lt); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(201,149,26,0.3); }
+318
+.btn-outline {
+319
+  padding: 12px 28px;
+320
+  border: 1.5px solid rgba(255,255,255,0.25);
+321
+  color: rgba(255,255,255,0.8);
+322
+  font-weight: 500;
+323
+  font-size: 13px;
+324
+  text-decoration: none;
+325
+  border-radius: 6px;
+326
+  transition: all var(--transition);
+327
+  display: inline-block;
+328
+}
+329
+.btn-outline:hover { border-color: var(--gold); color: var(--gold-lt); transform: translateY(-1px); }
+330
+ 
+331
+/* ── SECTIONS ── */
+332
+.section { padding: 60px; border-bottom: 1px solid var(--border); }
+333
+.section:last-child { border-bottom: none; }
+334
+.section-alt { background: var(--bg2); }
+335
+ 
+336
+.section-header { margin-bottom: 36px; }
+337
+.section-label {
+338
+  font-size: 11px;
+339
+  font-weight: 700;
+340
+  letter-spacing: 0.18em;
+341
+  text-transform: uppercase;
+342
+  color: var(--gold);
+343
+  margin-bottom: 8px;
+344
+}
+345
+.section-title {
+346
+  font-family: 'Lora', serif;
+347
+  font-size: 28px;
+348
+  font-weight: 600;
+349
+  color: var(--navy);
+350
+  letter-spacing: -0.01em;
+351
+}
+352
+ 
+353
+/* ── ABOUT ── */
+354
+.about-grid { display: grid; grid-template-columns: 1fr 280px; gap: 48px; align-items: start; }
+355
+.about-text p { font-size: 15.5px; color: var(--muted); line-height: 1.8; margin-bottom: 18px; }
+356
+.about-text p strong { color: var(--text); font-weight: 600; }
+357
+.about-text p:last-child { margin-bottom: 0; }
+358
+ 
+359
+.about-meta { display: flex; flex-direction: column; gap: 14px; }
+360
+.meta-item {
+361
+  background: var(--card);
+362
+  border: 1px solid var(--border);
+363
+  border-radius: var(--radius);
+364
+  padding: 16px 18px;
+365
+  transition: box-shadow var(--transition);
+366
+}
+367
+.meta-item:hover { box-shadow: var(--shadow); }
+368
+.meta-key {
+369
+  font-size: 10px;
+370
+  font-weight: 700;
+371
+  letter-spacing: 0.12em;
+372
+  text-transform: uppercase;
+373
+  color: var(--gold);
+374
+  margin-bottom: 4px;
+375
+}
+376
+.meta-val {
+377
+  font-size: 13.5px;
+378
+  color: var(--text);
+379
+  font-weight: 500;
+380
+  line-height: 1.4;
+381
+}
+382
+ 
+383
+/* ── SKILLS ── */
+384
+.skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+385
+.skill-group {
+386
+  background: var(--card);
+387
+  border: 1px solid var(--border);
+388
+  border-radius: var(--radius);
+389
+  padding: 22px 24px;
+390
+  transition: box-shadow var(--transition), border-color var(--transition);
+391
+}
+392
+.skill-group:hover { box-shadow: var(--shadow); border-color: rgba(201,149,26,0.3); }
+393
+.skill-group-name {
+394
+  font-size: 11px;
+395
+  font-weight: 700;
+396
+  letter-spacing: 0.14em;
+397
+  text-transform: uppercase;
+398
+  color: var(--navy);
+399
+  margin-bottom: 14px;
+400
+  display: flex;
+401
+  align-items: center;
+402
+  gap: 8px;
+403
+}
+404
+.skill-group-name::before {
+405
+  content: '';
+406
+  width: 16px; height: 2px;
+407
+  background: var(--gold);
+408
+  border-radius: 2px;
+409
+  flex-shrink: 0;
+410
+}
+411
+.tags { display: flex; flex-wrap: wrap; gap: 7px; }
+412
+.tag {
+413
+  font-size: 12px;
+414
+  font-weight: 500;
+415
+  padding: 4px 11px;
+416
+  background: var(--bg2);
+417
+  border: 1px solid var(--border);
+418
+  border-radius: 20px;
+419
+  color: var(--muted);
+420
+  transition: all var(--transition);
+421
+}
+422
+.skill-group:hover .tag { border-color: rgba(201,149,26,0.25); }
+423
+.tag.highlight-tag {
+424
+  background: rgba(201,149,26,0.08);
+425
+  border-color: rgba(201,149,26,0.3);
+426
+  color: #8a6010;
+427
+  font-weight: 600;
+428
+}
+429
+ 
+430
+/* ── EXPERIENCE ── */
+431
+.timeline { position: relative; }
+432
+.timeline::before {
+433
+  content: '';
+434
+  position: absolute;
+435
+  left: 0; top: 8px; bottom: 0;
+436
+  width: 2px;
+437
+  background: linear-gradient(to bottom, var(--gold), var(--border));
+438
+  border-radius: 2px;
+439
+}
+440
+.tl-item {
+441
+  padding-left: 28px;
+442
+  position: relative;
+443
+  margin-bottom: 40px;
+444
+  opacity: 0;
+445
+  transform: translateY(16px);
+446
+  transition: opacity 0.5s ease, transform 0.5s ease;
+447
+}
+448
+.tl-item.visible { opacity: 1; transform: translateY(0); }
+449
+.tl-item:last-child { margin-bottom: 0; }
+450
+.tl-dot {
+451
+  position: absolute;
+452
+  left: -5px; top: 6px;
+453
+  width: 12px; height: 12px;
+454
+  background: var(--gold);
+455
+  border-radius: 50%;
+456
+  border: 2px solid var(--bg);
+457
+  box-shadow: 0 0 0 3px rgba(201,149,26,0.2);
+458
+}
+459
+.tl-period {
+460
+  font-size: 11px;
+461
+  font-weight: 700;
+462
+  letter-spacing: 0.1em;
+463
+  text-transform: uppercase;
+464
+  color: var(--gold);
+465
+  margin-bottom: 6px;
+466
+}
+467
+.tl-org {
+468
+  font-family: 'Lora', serif;
+469
+  font-size: 19px;
+470
+  font-weight: 600;
+471
+  color: var(--navy);
+472
+  margin-bottom: 3px;
+473
+}
+474
+.tl-role {
+475
+  font-size: 13px;
+476
+  color: var(--muted);
+477
+  font-weight: 500;
+478
+  font-style: italic;
+479
+  margin-bottom: 14px;
+480
+}
+481
+.tl-bullets { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+482
+.tl-bullets li {
+483
+  font-size: 14.5px;
+484
+  color: var(--muted);
+485
+  line-height: 1.7;
+486
+  padding-left: 16px;
+487
+  position: relative;
+488
+}
+489
+.tl-bullets li::before {
+490
+  content: '›';
+491
+  position: absolute;
+492
+  left: 0;
+493
+  color: var(--gold);
+494
+  font-size: 17px;
+495
+  line-height: 1.5;
+496
+  font-weight: 700;
+497
+}
+498
+.tl-bullets li strong { color: var(--text); font-weight: 600; }
+499
+ 
+500
+/* ── PROJECTS ── */
+501
+.projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+502
+.project-card {
+503
+  background: var(--card);
+504
+  border: 1px solid var(--border);
+505
+  border-radius: var(--radius);
+506
+  padding: 28px 26px;
+507
+  position: relative;
+508
+  overflow: hidden;
+509
+  transition: all var(--transition);
+510
+}
+511
+.project-card::before {
+512
+  content: '';
+513
+  position: absolute;
+514
+  top: 0; left: 0; right: 0;
+515
+  height: 3px;
+516
+  background: linear-gradient(to right, var(--gold), var(--gold-lt));
+517
+  transform: scaleX(0);
+518
+  transform-origin: left;
+519
+  transition: transform 0.35s ease;
+520
+}
+521
+.project-card:hover { box-shadow: var(--shadow-lg); border-color: rgba(201,149,26,0.2); transform: translateY(-3px); }
+522
+.project-card:hover::before { transform: scaleX(1); }
+523
+.project-num {
+524
+  font-size: 11px;
+525
+  font-weight: 700;
+526
+  letter-spacing: 0.14em;
+527
+  color: var(--gold);
+528
+  text-transform: uppercase;
+529
+  margin-bottom: 10px;
+530
+}
+531
+.project-name {
+532
+  font-family: 'Lora', serif;
+533
+  font-size: 20px;
+534
+  font-weight: 600;
+535
+  color: var(--navy);
+536
+  margin-bottom: 5px;
+537
+}
+538
+.project-domain {
+539
+  font-size: 11px;
+540
+  font-weight: 600;
+541
+  letter-spacing: 0.08em;
+542
+  text-transform: uppercase;
+543
+  color: var(--muted);
+544
+  margin-bottom: 14px;
+545
+}
+546
+.project-desc {
+547
+  font-size: 14px;
+548
+  color: var(--muted);
+549
+  line-height: 1.75;
+550
+  margin-bottom: 18px;
+551
+}
+552
+.project-metrics {
+553
+  display: flex;
+554
+  gap: 18px;
+555
+  margin-bottom: 16px;
+556
+  padding: 14px 16px;
+557
+  background: var(--bg);
+558
+  border-radius: 7px;
+559
+  border: 1px solid var(--border);
+560
+}
+561
+.pm-val {
+562
+  font-family: 'Lora', serif;
+563
+  font-size: 22px;
+564
+  font-weight: 600;
+565
+  color: var(--navy);
+566
+  line-height: 1;
+567
+  margin-bottom: 3px;
+568
+}
+569
+.pm-lbl {
+570
+  font-size: 10px;
+571
+  font-weight: 600;
+572
+  letter-spacing: 0.08em;
+573
+  text-transform: uppercase;
+574
+  color: var(--muted);
+575
+}
+576
+ 
+577
+/* ── EDUCATION ── */
+578
+.edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+579
+.edu-item {
+580
+  padding: 20px 22px;
+581
+  background: var(--card);
+582
+  border: 1px solid var(--border);
+583
+  border-radius: var(--radius);
+584
+  border-left: 3px solid var(--gold);
+585
+  margin-bottom: 14px;
+586
+  transition: box-shadow var(--transition);
+587
+}
+588
+.edu-item:hover { box-shadow: var(--shadow); }
+589
+.edu-degree { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 4px; line-height: 1.3; }
+590
+.edu-school { font-size: 13px; color: var(--gold); font-weight: 600; margin-bottom: 3px; }
+591
+.edu-meta { font-size: 12px; color: var(--muted); font-weight: 500; }
+592
+ 
+593
+.cert-list { display: flex; flex-direction: column; gap: 10px; }
+594
+.cert-item {
+595
+  display: flex;
+596
+  align-items: flex-start;
+597
+  gap: 12px;
+598
+  padding: 13px 16px;
+599
+  background: var(--card);
+600
+  border: 1px solid var(--border);
+601
+  border-radius: 8px;
+602
+  transition: all var(--transition);
+603
+}
+604
+.cert-item:hover { border-color: rgba(201,149,26,0.3); box-shadow: var(--shadow); }
+605
+.cert-icon {
+606
+  width: 28px; height: 28px;
+607
+  background: rgba(201,149,26,0.1);
+608
+  border-radius: 6px;
+609
+  display: flex;
+610
+  align-items: center;
+611
+  justify-content: center;
+612
+  flex-shrink: 0;
+613
+  font-size: 13px;
+614
+}
+615
+.cert-text { font-size: 13px; color: var(--text); line-height: 1.45; font-weight: 500; flex: 1; }
+616
+.cert-issuer {
+617
+  font-size: 10px;
+618
+  font-weight: 700;
+619
+  letter-spacing: 0.08em;
+620
+  text-transform: uppercase;
+621
+  color: var(--gold);
+622
+  white-space: nowrap;
+623
+  flex-shrink: 0;
+624
+  margin-top: 2px;
+625
+}
+626
+ 
+627
+/* ── CONTACT ── */
+628
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+629
+.contact-text p { font-size: 15.5px; color: var(--muted); line-height: 1.8; margin-bottom: 18px; }
+630
+.contact-links-grid { display: flex; flex-direction: column; gap: 12px; }
+631
+.contact-link {
+632
+  display: flex;
+633
+  align-items: center;
+634
+  gap: 14px;
+635
+  padding: 16px 20px;
+636
+  background: var(--card);
+637
+  border: 1px solid var(--border);
+638
+  border-radius: var(--radius);
+639
+  text-decoration: none;
+640
+  color: var(--text);
+641
+  font-weight: 600;
+642
+  font-size: 14px;
+643
+  transition: all var(--transition);
+644
+}
+645
+.contact-link:hover { border-color: var(--gold); color: var(--navy); box-shadow: var(--shadow); transform: translateX(4px); }
+646
+.contact-link-icon {
+647
+  width: 38px; height: 38px;
+648
+  background: rgba(201,149,26,0.1);
+649
+  border-radius: 8px;
+650
+  display: flex; align-items: center; justify-content: center;
+651
+  font-size: 17px;
+652
+  flex-shrink: 0;
+653
+  transition: background var(--transition);
+654
+}
+655
+.contact-link:hover .contact-link-icon { background: var(--gold); }
+656
+.contact-link-sub { font-size: 12px; color: var(--muted); font-weight: 400; margin-top: 1px; }
+657
+ 
+658
+/* ── FOOTER ── */
+659
+footer {
+660
+  background: var(--navy);
+661
+  padding: 24px 60px;
+662
+  display: flex;
+663
+  justify-content: space-between;
+664
+  align-items: center;
+665
+  flex-wrap: wrap;
+666
+  gap: 10px;
+667
+}
+668
+footer p { font-size: 12px; color: rgba(255,255,255,0.35); font-weight: 400; }
+669
+footer a { color: rgba(255,255,255,0.35); text-decoration: none; }
+670
+footer a:hover { color: var(--gold-lt); }
+671
+ 
+672
+/* ── REVEAL ANIMATION ── */
+673
+.reveal {
+674
+  opacity: 0;
+675
+  transform: translateY(20px);
+676
+  transition: opacity 0.6s ease, transform 0.6s ease;
+677
+}
+678
+.reveal.visible { opacity: 1; transform: translateY(0); }
+679
+ 
+680
+/* ── RESPONSIVE ── */
+681
+@media (max-width: 900px) {
+682
+  .sidebar { display: none; }
+683
+  .mobile-nav { display: flex; }
+684
+  .main { margin-left: 0; padding-top: 52px; }
+685
+  .hero { padding: 40px 24px 36px; }
+686
+  .hero-stats { grid-template-columns: repeat(2, 1fr); }
+687
+  .section { padding: 44px 24px; }
+688
+  .about-grid { grid-template-columns: 1fr; }
+689
+  .skills-grid { grid-template-columns: 1fr; }
+690
+  .projects-grid { grid-template-columns: 1fr; }
+691
+  .edu-grid { grid-template-columns: 1fr; }
+692
+  .contact-grid { grid-template-columns: 1fr; }
+693
+  footer { padding: 20px 24px; flex-direction: column; text-align: center; }
+694
+}
+695
+@media (max-width: 480px) {
+696
+  .hero-name { font-size: 32px; }
+697
+  .hero-stats { grid-template-columns: repeat(2, 1fr); }
+698
+  .hero-cta { flex-direction: column; }
+699
+  .btn-primary, .btn-outline { text-align: center; }
+700
+}
+701
 </style>
+702
 </head>
-
+703
 <body>
-
-<div class="container">
-
-<h1>Mokshada Joshi</h1>
-<p><strong>AI Product Manager | Technical PM | Business Analyst</strong></p>
-
-<p>
-Driving AI product strategy and delivery across <span class="highlight">GenAI, enterprise systems, and data platforms</span>.
-</p>
-
-<a href="#projects" class="btn">View Projects</a>
-<a href="mailto:Mokujoshi2002@gmail.com" class="btn">Contact</a>
-
----
-
-<h2>About</h2>
-
-<p>
-AI Product Manager with 4+ years of experience delivering 
-GenAI applications, ML systems, and enterprise platforms across 
-Travel, Retail, Infrastructure, and Finance domains.
-</p>
-
-<p>
-Specialized in translating complex AI capabilities into scalable, 
-user-centric solutions with measurable business impact.
-</p>
-
----
-
-<h2>Core Competencies</h2>
-
-<ul>
-<li>AI Product Strategy & Roadmapping</li>
-<li>GenAI & LLM Integration</li>
-<li>Agile & Cross-functional Leadership</li>
-<li>Data Analytics & Decision Intelligence</li>
-<li>Stakeholder & Client Management</li>
-</ul>
-
----
-
-<h2>Experience</h2>
-
-<div class="card">
-<h3>Bee Logical Software Solutions</h3>
-<p><strong>Technical Project Manager (AI Products)</strong></p>
-<ul>
-<li>Founded Pollen.AI – AI product division</li>
-<li>Delivered AI travel platform reducing booking time by ~6 hours</li>
-<li>Managed enterprise projects up to ₹1Cr</li>
-</ul>
+704
+ 
+705
+<!-- MOBILE NAV -->
+706
+<nav class="mobile-nav">
+707
+  <div class="mobile-nav-name">Mokshada Joshi</div>
+708
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+709
+    <span></span><span></span><span></span>
+710
+  </button>
+711
+</nav>
+712
+<div class="mobile-menu" id="mobile-menu">
+713
+  <a href="#about" onclick="closeMenu()">About</a>
+714
+  <a href="#skills" onclick="closeMenu()">Skills</a>
+715
+  <a href="#experience" onclick="closeMenu()">Experience</a>
+716
+  <a href="#projects" onclick="closeMenu()">Projects</a>
+717
+  <a href="#education" onclick="closeMenu()">Education</a>
+718
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+719
 </div>
-
-<div class="card">
-<h3>Persistent Systems</h3>
-<p><strong>Systems Engineer</strong></p>
-<ul>
-<li>Built dashboards for 100+ projects</li>
-<li>Reduced reporting effort by 40%</li>
-<li>Implemented AI automation workflows</li>
-</ul>
+720
+ 
+721
+<div class="layout">
+722
+  <!-- SIDEBAR -->
+723
+  <aside class="sidebar">
+724
+    <div class="sidebar-name">Mokshada<br/>Joshi</div>
+725
+    <div class="sidebar-role">AI Product Manager<br/>Technical PM · BA</div>
+726
+ 
+727
+    <nav class="sidebar-nav">
+728
+      <a href="#about" class="active"><span class="nav-dot"></span>About</a>
+729
+      <a href="#skills"><span class="nav-dot"></span>Skills & Tools</a>
+730
+      <a href="#experience"><span class="nav-dot"></span>Experience</a>
+731
+      <a href="#projects"><span class="nav-dot"></span>Projects</a>
+732
+      <a href="#education"><span class="nav-dot"></span>Education</a>
+733
+      <a href="#contact"><span class="nav-dot"></span>Contact</a>
+734
+    </nav>
+735
+ 
+736
+    <div class="sidebar-links">
+737
+      <a href="mailto:Mokujoshi2002@gmail.com" target="_blank">
+738
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+739
+        Mokujoshi2002@gmail.com
+740
+      </a>
+741
+      <a href="https://linkedin.com/in/mokshada-joshi" target="_blank">
+742
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+743
+        linkedin.com/in/mokshada-joshi
+744
+      </a>
+745
+      <a href="https://github.com/jmokshada" target="_blank">
+746
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+747
+        github.com/jmokshada
+748
+      </a>
+749
+      <a href="tel:+917999243057">
+750
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.6 2.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+751
+        +91 79992 43057
+752
+      </a>
+753
+    </div>
+754
+  </aside>
+755
+ 
+756
+  <!-- MAIN -->
+757
+  <main class="main">
+758
+ 
+759
+    <!-- HERO -->
+760
+    <section class="hero">
+761
+      <div class="hero-eyebrow">AI Product Manager · Pune / Indore, India</div>
+762
+      <h1 class="hero-name">Mokshada Joshi</h1>
+763
+      <div class="hero-titles">
+764
+        <span class="title-badge">AI Product Manager</span>
+765
+        <span class="title-badge">Technical Project Manager</span>
+766
+        <span class="title-badge">Business Analyst</span>
+767
+      </div>
+768
+      <p class="hero-desc">Delivering GenAI applications, ML systems, and enterprise platforms across Travel, Finance, Retail, and Infrastructure. Hands-on from discovery and Figma prototypes to sprint delivery and go-to-market.</p>
+769
+      <div class="hero-stats">
+770
+        <div class="hero-stat"><div class="stat-num">4+</div><div class="stat-lbl">Years experience</div></div>
+771
+        <div class="hero-stat"><div class="stat-num">6+</div><div class="stat-lbl">AI products shipped</div></div>
+772
+        <div class="hero-stat"><div class="stat-num">80+</div><div class="stat-lbl">Projects governed</div></div>
+773
+        <div class="hero-stat"><div class="stat-num">3</div><div class="stat-lbl">GTM products</div></div>
+774
+      </div>
+775
+      <div class="hero-cta">
+776
+        <a href="#projects" class="btn-primary">View Projects</a>
+777
+        <a href="#contact" class="btn-outline">Get in Touch</a>
+778
+      </div>
+779
+    </section>
+780
+ 
+781
+    <!-- ABOUT -->
+782
+    <section class="section" id="about">
+783
+      <div class="section-header reveal">
+784
+        <div class="section-label">01 · About</div>
+785
+        <h2 class="section-title">Building AI products that actually ship</h2>
+786
+      </div>
+787
+      <div class="about-grid">
+788
+        <div class="about-text reveal">
+789
+          <p>I'm an AI Product Manager and Technical PM who is equally comfortable writing a PRD, building a Figma prototype for client sign-off, running a sprint, or integrating a GenAI API. My work spans <strong>enterprise SaaS, GenAI automation, data dashboards, and IT infrastructure</strong> for global clients.</p>
+790
+          <p>I established <strong>Pollen.AI</strong> — Bee Logical's AI product division — and drove three products (Smart HR, Policy Bot, Project Insight) from zero to active productisation. I use AI tools daily — ChatGPT, Claude, Gemini, Perplexity — not just to talk about GenAI, but to actually move work faster.</p>
+791
+          <p>Currently open to <strong>AI PM, Technical PM, and Senior BA roles</strong> at AI-first companies or teams scaling GenAI products. Pune, Bengaluru, or Remote.</p>
+792
+        </div>
+793
+        <div class="about-meta reveal">
+794
+          <div class="meta-item"><div class="meta-key">Location</div><div class="meta-val">Pune / Indore, India</div></div>
+795
+          <div class="meta-item"><div class="meta-key">Availability</div><div class="meta-val">Open to opportunities</div></div>
+796
+          <div class="meta-item"><div class="meta-key">Education</div><div class="meta-val">MBA Analytics · MIT MicroMasters</div></div>
+797
+          <div class="meta-item"><div class="meta-key">Domains</div><div class="meta-val">Travel · FinTech · Infra · Retail · HRTech</div></div>
+798
+        </div>
+799
+      </div>
+800
+    </section>
+801
+ 
+802
+    <!-- SKILLS -->
+803
+    <section class="section section-alt" id="skills">
+804
+      <div class="section-header reveal">
+805
+        <div class="section-label">02 · Skills & Tools</div>
+806
+        <h2 class="section-title">Full-stack PM toolkit</h2>
+807
+      </div>
+808
+      <div class="skills-grid">
+809
+        <div class="skill-group reveal">
+810
+          <div class="skill-group-name">Product Management</div>
+811
+          <div class="tags">
+812
+            <span class="tag highlight-tag">Roadmapping</span>
+813
+            <span class="tag highlight-tag">PRD Authoring</span>
+814
+            <span class="tag">User Stories & AC</span>
+815
+            <span class="tag">Backlog Prioritization</span>
+816
+            <span class="tag">OKRs</span>
+817
+            <span class="tag">Go-to-Market</span>
+818
+            <span class="tag">Impact Analysis</span>
+819
+            <span class="tag">Discovery & Req. Gathering</span>
+820
+            <span class="tag">Persona UX</span>
+821
+            <span class="tag">Data Governance</span>
+822
+          </div>
+823
+        </div>
+824
+        <div class="skill-group reveal">
+825
+          <div class="skill-group-name">Agile & Delivery</div>
+826
+          <div class="tags">
+827
+            <span class="tag highlight-tag">Scrum Master</span>
+828
+            <span class="tag">Kanban</span>
+829
+            <span class="tag">Sprint Planning</span>
+830
+            <span class="tag">Sprint Review</span>
+831
+            <span class="tag">Retrospectives</span>
+832
+            <span class="tag">Backlog Grooming</span>
+833
+            <span class="tag">Refinement</span>
+834
+            <span class="tag">Azure DevOps</span>
+835
+            <span class="tag">JIRA</span>
+836
+            <span class="tag">MS Project</span>
+837
+          </div>
+838
+        </div>
+839
+        <div class="skill-group reveal">
+840
+          <div class="skill-group-name">AI Tools · Used Daily</div>
+841
+          <div class="tags">
+842
+            <span class="tag highlight-tag">ChatGPT</span>
+843
+            <span class="tag highlight-tag">Claude AI</span>
+844
+            <span class="tag highlight-tag">Google Gemini</span>
+845
+            <span class="tag highlight-tag">Perplexity AI</span>
+846
+            <span class="tag">GitHub Copilot</span>
+847
+            <span class="tag">Make (Integromat)</span>
+848
+          </div>
+849
+        </div>
+850
+        <div class="skill-group reveal">
+851
+          <div class="skill-group-name">Prototyping & Design</div>
+852
+          <div class="tags">
+853
+            <span class="tag highlight-tag">Figma</span>
+854
+            <span class="tag highlight-tag">Draw.io</span>
+855
+            <span class="tag">Notion</span>
+856
+            <span class="tag">Process Flows</span>
+857
+            <span class="tag">System Architecture</span>
+858
+            <span class="tag">Wireframes</span>
+859
+            <span class="tag">UI Mockups</span>
+860
+          </div>
+861
+        </div>
+862
+        <div class="skill-group reveal">
+863
+          <div class="skill-group-name">AI / ML / GenAI</div>
+864
+          <div class="tags">
+865
+            <span class="tag">Generative AI</span>
+866
+            <span class="tag">NLP / LLMs</span>
+867
+            <span class="tag">TensorFlow</span>
+868
+            <span class="tag">Scikit-learn</span>
+869
+            <span class="tag">BERT</span>
+870
+            <span class="tag">OpenCV</span>
+871
+            <span class="tag">YOLO</span>
+872
+            <span class="tag">Transformers</span>
+873
+          </div>
+874
+        </div>
+875
+        <div class="skill-group reveal">
+876
+          <div class="skill-group-name">Data & Infrastructure</div>
+877
+          <div class="tags">
+878
+            <span class="tag">Power BI</span>
+879
+            <span class="tag">Tableau</span>
+880
+            <span class="tag">SQL</span>
+881
+            <span class="tag">GCP Vertex AI</span>
+882
+            <span class="tag">IBM PIM/MDM</span>
+883
+            <span class="tag">Salesforce</span>
+884
+            <span class="tag">CISCO</span>
+885
+            <span class="tag">SDWAN</span>
+886
+            <span class="tag">APIs</span>
+887
+          </div>
+888
+        </div>
+889
+      </div>
+890
+    </section>
+891
+ 
+892
+    <!-- EXPERIENCE -->
+893
+    <section class="section" id="experience">
+894
+      <div class="section-header reveal">
+895
+        <div class="section-label">03 · Experience</div>
+896
+        <h2 class="section-title">Where I've delivered</h2>
+897
+      </div>
+898
+      <div class="timeline">
+899
+        <div class="tl-item">
+900
+          <div class="tl-dot"></div>
+901
+          <div class="tl-period">Nov 2024 — Present</div>
+902
+          <div class="tl-org">Bee Logical Software Solutions</div>
+903
+          <div class="tl-role">Technical Project Manager · AI Products & Enterprise SaaS Delivery · Pune</div>
+904
+          <ul class="tl-bullets">
+905
+            <li>Established and led <strong>Pollen.AI</strong> — Bee Logical's AI product division — building Smart HR, Policy Bot, and Project Insight from zero; all three in active productisation phase targeting market launch.</li>
+906
+            <li>Managed <strong>3–4 concurrent enterprise client projects</strong>; led end-to-end requirement gathering using Figma wireframes and Draw.io process flows to secure client approval before development.</li>
+907
+            <li>Authored and groomed <strong>50+ user stories with acceptance criteria</strong> in Azure DevOps; facilitated sprint planning, reviews, retrospectives, backlog grooming and refinement for cross-functional teams (5–7 devs, design, QA).</li>
+908
+            <li>Led <strong>IncBuddy 'Nova'</strong>: defined PRD, built Figma prototypes, and owned backlog for AI travel booking agent — saved <strong>~6 hrs/booking</strong> and <strong>~18% costs</strong> via policy/approval workflows and finance dashboards.</li>
+909
+            <li>Delivered <strong>Telosa</strong>: AI reputation management SaaS with NLP sentiment analysis and auto-response; managed backlog, coordinated UAT, and supported GTM prep.</li>
+910
+            <li>Used ChatGPT, Claude, Gemini, Perplexity, and Make (Integromat) daily for design ideation, impact analysis, and workflow automation prototyping.</li>
+911
+          </ul>
+912
+        </div>
+913
+        <div class="tl-item">
+914
+          <div class="tl-dot"></div>
+915
+          <div class="tl-period">Jul 2024 — Oct 2024</div>
+916
+          <div class="tl-org">Persistent Systems Limited</div>
+917
+          <div class="tl-role">Systems Engineer · Acting: Business Analyst & Product Manager — IBM MDM/PIM · Hinjewadi, Pune</div>
+918
+          <ul class="tl-bullets">
+919
+            <li>Customised IBM PIM for multiple client portfolios; integrated GenAI models to automate data enrichment and approval workflows, reducing manual effort by <strong>20%</strong>; transitioned to pursue AI product opportunity at Bee Logical.</li>
+920
+            <li>Built Power BI and GCP Vertex AI dashboards for CXO-level operational and security insights; authored BRDs, functional specs, and training documentation enabling adoption across 3 client teams.</li>
+921
+          </ul>
+922
+        </div>
+923
+        <div class="tl-item">
+924
+          <div class="tl-dot"></div>
+925
+          <div class="tl-period">Jul 2022 — Jun 2024</div>
+926
+          <div class="tl-org">Persistent Systems Limited</div>
+927
+          <div class="tl-role">Systems Engineer · Acting: Project Manager & Scrum Master — IT PMO · Hinjewadi, Pune</div>
+928
+          <ul class="tl-bullets">
+929
+            <li>Managed <strong>6 concurrent global infrastructure and application projects</strong> (CISCO, NterOne vendors); ran sprint planning, reviews, retrospectives, and impact analysis — all delivered within scope, timeline, and budget.</li>
+930
+            <li>Built PM dashboards covering <strong>80–105 projects</strong> for CXO leadership; automated data flows in Power BI and SQL, cutting reporting time by <strong>40%</strong>.</li>
+931
+            <li>Led CISCO SDWAN deployment and HJ Data Centre revamp with near-zero downtime; improved delivery predictability by <strong>35%</strong>.</li>
+932
+          </ul>
+933
+        </div>
+934
+        <div class="tl-item">
+935
+          <div class="tl-dot"></div>
+936
+          <div class="tl-period">Feb 2022 — Jun 2022</div>
+937
+          <div class="tl-org">Persistent Systems Limited</div>
+938
+          <div class="tl-role">Systems Engineer Intern · AI/ML Development & Project Coordination</div>
+939
+          <ul class="tl-bullets">
+940
+            <li>Built AI ticket classification pipeline (BERT + SVM/KNN, Python, Flask, MySQL) for a multinational bank — reduced complaint misrouting by <strong>30%+</strong>.</li>
+941
+            <li>Contributed to real-time object detection system (YOLO v3, OpenCV) for spatial positioning feedback.</li>
+942
+          </ul>
+943
+        </div>
+944
+      </div>
+945
+    </section>
+946
+ 
+947
+    <!-- PROJECTS -->
+948
+    <section class="section section-alt" id="projects">
+949
+      <div class="section-header reveal">
+950
+        <div class="section-label">04 · Projects</div>
+951
+        <h2 class="section-title">Products I've owned & shipped</h2>
+952
+      </div>
+953
+      <div class="projects-grid">
+954
+        <div class="project-card reveal">
+955
+          <div class="project-num">Project 01</div>
+956
+          <div class="project-name">Pollen.AI</div>
+957
+          <div class="project-domain">AI Product Division · HRTech · LegalTech · PMO</div>
+958
+          <p class="project-desc">Established Bee Logical's AI product arm from scratch. Built Smart HR (AI recruitment automation), Policy Bot (automated compliance workflows), and Project Insight (AI PM intelligence). All three in active productisation for market launch.</p>
+959
+          <div class="project-metrics">
+960
+            <div><div class="pm-val">3</div><div class="pm-lbl">products</div></div>
+961
+            <div><div class="pm-val">~30%</div><div class="pm-lbl">effort saved</div></div>
+962
+            <div><div class="pm-val">GTM</div><div class="pm-lbl">launch phase</div></div>
+963
+          </div>
+964
+          <div class="tags"><span class="tag">GenAI</span><span class="tag">LLMs</span><span class="tag">PRD</span><span class="tag">Figma</span><span class="tag">Product Lead</span></div>
+965
+        </div>
+966
+        <div class="project-card reveal">
+967
+          <div class="project-num">Project 02</div>
+968
+          <div class="project-name">IncBuddy — Nova AI</div>
+969
+          <div class="project-domain">AI SaaS · Travel Tech · Enterprise B2B</div>
+970
+          <p class="project-desc">Defined PRD, built Figma prototypes, and owned the full product backlog for an AI travel booking agent — flights, hotels, buses, visas, holidays. Shipped policy/approval engine and real-time finance dashboard for enterprise clients.</p>
+971
+          <div class="project-metrics">
+972
+            <div><div class="pm-val">~6h</div><div class="pm-lbl">saved/booking</div></div>
+973
+            <div><div class="pm-val">18%</div><div class="pm-lbl">cost reduction</div></div>
+974
+          </div>
+975
+          <div class="tags"><span class="tag">GenAI</span><span class="tag">NLP</span><span class="tag">Figma</span><span class="tag">Azure DevOps</span><span class="tag">Product Owner</span></div>
+976
+        </div>
+977
+        <div class="project-card reveal">
+978
+          <div class="project-num">Project 03</div>
+979
+          <div class="project-name">AI Ticket Classifier</div>
+980
+          <div class="project-domain">Applied ML · Banking / FinTech</div>
+981
+          <p class="project-desc">End-to-end NLP pipeline for a multinational bank — BERT Sequence Classifier + SVM + KNN classifying customer complaints in real time via Flask REST API, with MySQL logging and live monitoring dashboard.</p>
+982
+          <div class="project-metrics">
+983
+            <div><div class="pm-val">30%+</div><div class="pm-lbl">less misrouting</div></div>
+984
+            <div><div class="pm-val">&lt;1s</div><div class="pm-lbl">per ticket</div></div>
+985
+          </div>
+986
+          <div class="tags"><span class="tag">Python</span><span class="tag">BERT</span><span class="tag">Flask</span><span class="tag">NLP</span><span class="tag">MySQL</span></div>
+987
+        </div>
+988
+        <div class="project-card reveal">
+989
+          <div class="project-num">Project 04</div>
+990
+          <div class="project-name">CXO PMO Dashboards</div>
+991
+          <div class="project-domain">Data Analytics · IT PMO · Enterprise</div>
+992
+          <p class="project-desc">Built and maintained executive dashboards covering 80–105 concurrent projects for Persistent Systems leadership. Automated data pipelines in Power BI and SQL eliminated 40% of manual reporting effort, delivering real-time operational clarity.</p>
+993
+          <div class="project-metrics">
+994
+            <div><div class="pm-val">105</div><div class="pm-lbl">projects tracked</div></div>
+995
+            <div><div class="pm-val">40%</div><div class="pm-lbl">less reporting</div></div>
+996
+          </div>
+997
+          <div class="tags"><span class="tag">Power BI</span><span class="tag">SQL</span><span class="tag">GCP</span><span class="tag">Azure DevOps</span></div>
+998
+        </div>
+999
+      </div>
+1000
+    </section>
+1001
+ 
+1002
+    <!-- EDUCATION -->
+1003
+    <section class="section" id="education">
+1004
+      <div class="section-header reveal">
+1005
+        <div class="section-label">05 · Education & Certifications</div>
+1006
+        <h2 class="section-title">Academic background</h2>
+1007
+      </div>
+1008
+      <div class="edu-grid reveal">
+1009
+        <div>
+1010
+          <div class="edu-item">
+1011
+            <div class="edu-degree">MBA — Analytics & Data Science</div>
+1012
+            <div class="edu-school">Manipal University Jaipur</div>
+1013
+            <div class="edu-meta">2023 – 2025 &nbsp;·&nbsp; 8.29 CGPA</div>
+1014
+          </div>
+1015
+          <div class="edu-item">
+1016
+            <div class="edu-degree">Statistics & Data Science MicroMasters</div>
+1017
+            <div class="edu-school">Massachusetts Institute of Technology (MITx / edX)</div>
+1018
+            <div class="edu-meta">2023 – Present &nbsp;·&nbsp; In Progress</div>
+1019
+          </div>
+1020
+          <div class="edu-item">
+1021
+            <div class="edu-degree">B.E. — Computer Science & Engineering</div>
+1022
+            <div class="edu-school">RGPV University</div>
+1023
+            <div class="edu-meta">2018 – 2022 &nbsp;·&nbsp; 8.50 CGPA</div>
+1024
+          </div>
+1025
+        </div>
+1026
+        <div class="cert-list">
+1027
+          <div class="cert-item"><span class="cert-icon">🏅</span><span class="cert-text">ML Specialization + Tools for Data Science</span><span class="cert-issuer">IBM 2025</span></div>
+1028
+          <div class="cert-item"><span class="cert-icon">☁️</span><span class="cert-text">Vertex AI Search & Text Prompt Engineering (L300/L200)</span><span class="cert-issuer">GCP 2024</span></div>
+1029
+          <div class="cert-item"><span class="cert-icon">🏅</span><span class="cert-text">ML with Python: Linear Models to Deep Learning</span><span class="cert-issuer">MITx 2023</span></div>
+1030
+          <div class="cert-item"><span class="cert-icon">📊</span><span class="cert-text">Fundamentals of Statistics + Probability</span><span class="cert-issuer">MITx 2024</span></div>
+1031
+          <div class="cert-item"><span class="cert-icon">🏅</span><span class="cert-text">Generative AI for Project Managers + Scrum Basics</span><span class="cert-issuer">PMI 2024</span></div>
+1032
+          <div class="cert-item"><span class="cert-icon">🤖</span><span class="cert-text">Advanced RPA Professional V11.0</span><span class="cert-issuer">AA 2020</span></div>
+1033
+          <div class="cert-item"><span class="cert-icon">🔬</span><span class="cert-text">Research Methodology</span><span class="cert-issuer">QMUL 2025</span></div>
+1034
+        </div>
+1035
+      </div>
+1036
+    </section>
+1037
+ 
+1038
+    <!-- CONTACT -->
+1039
+    <section class="section section-alt" id="contact">
+1040
+      <div class="section-header reveal">
+1041
+        <div class="section-label">06 · Contact</div>
+1042
+        <h2 class="section-title">Let's work together</h2>
+1043
+      </div>
+1044
+      <div class="contact-grid reveal">
+1045
+        <div class="contact-text">
+1046
+          <p>I'm actively looking for <strong>AI Product Manager, Technical Project Manager, and Senior BA roles</strong> — preferably at AI-first companies or teams scaling GenAI products.</p>
+1047
+          <p>Open to opportunities in Pune, Bengaluru, or fully Remote. Feel free to reach out directly — I typically respond within 24 hours.</p>
+1048
+        </div>
+1049
+        <div class="contact-links-grid">
+1050
+          <a href="mailto:Mokujoshi2002@gmail.com" class="contact-link">
+1051
+            <div class="contact-link-icon">✉️</div>
+1052
+            <div>
+1053
+              <div>Send an Email</div>
+1054
+              <div class="contact-link-sub">Mokujoshi2002@gmail.com</div>
+1055
+            </div>
+1056
+          </a>
+1057
+          <a href="https://linkedin.com/in/mokshada-joshi" target="_blank" class="contact-link">
+1058
+            <div class="contact-link-icon">🔗</div>
+1059
+            <div>
+1060
+              <div>Connect on LinkedIn</div>
+1061
+              <div class="contact-link-sub">linkedin.com/in/mokshada-joshi</div>
+1062
+            </div>
+1063
+          </a>
+1064
+          <a href="https://github.com/jmokshada" target="_blank" class="contact-link">
+1065
+            <div class="contact-link-icon">💻</div>
+1066
+            <div>
+1067
+              <div>View GitHub</div>
+1068
+              <div class="contact-link-sub">github.com/jmokshada</div>
+1069
+            </div>
+1070
+          </a>
+1071
+          <a href="tel:+917999243057" class="contact-link">
+1072
+            <div class="contact-link-icon">📱</div>
+1073
+            <div>
+1074
+              <div>Call / WhatsApp</div>
+1075
+              <div class="contact-link-sub">+91 79992 43057</div>
+1076
+            </div>
+1077
+          </a>
+1078
+        </div>
+1079
+      </div>
+1080
+    </section>
+1081
+ 
+1082
+    <footer>
+1083
+      <p>© 2026 Mokshada Joshi · AI Product Manager</p>
+1084
+      <p><a href="https://mokshada.in">mokshada.in</a></p>
+1085
+    </footer>
+1086
+ 
+1087
+  </main>
+1088
 </div>
-
----
-
-<h2 id="projects">Projects</h2>
-
-<div class="card">
-<h3>Pollen.AI</h3>
-<p>
-Built AI products including Smart HR, Policy Bot, and Project Insights.
-</p>
-</div>
-
-<div class="card">
-<h3>IncBuddy AI</h3>
-<p>
-AI travel platform reducing booking time and cost significantly.
-</p>
-</div>
-
-<div class="card">
-<h3>AI Ticket Classifier</h3>
-<p>
-ML system reducing misrouting by 30% using NLP.
-</p>
-</div>
-
----
-
-<h2>Contact</h2>
-
-<p>
-📧 Mokujoshi2002@gmail.com  
-<br>
-🔗 <a href="https://github.com/jmokshada" target="_blank">GitHub</a>  
-<br>
-🔗 <a href="https://linkedin.com/in/mokshada-joshi" target="_blank">LinkedIn</a>
-</p>
-
-<footer>
-<p>© 2026 Mokshada Joshi</p>
-</footer>
-
-</div>
-
+1089
+ 
+1090
+<script>
+1091
+// ── MOBILE MENU ──
+1092
+const ham = document.getElementById('hamburger');
+1093
+const menu = document.getElementById('mobile-menu');
+1094
+ham.addEventListener('click', () => {
+1095
+  ham.classList.toggle('open');
+1096
+  menu.classList.toggle('open');
+1097
+});
+1098
+function closeMenu() {
+1099
+  ham.classList.remove('open');
+1100
+  menu.classList.remove('open');
+1101
+}
+1102
+ 
+1103
+// ── ACTIVE NAV ON SCROLL ──
+1104
+const navLinks = document.querySelectorAll('.sidebar-nav a');
+1105
+const sections = document.querySelectorAll('section[id]');
+1106
+ 
+1107
+function setActive() {
+1108
+  let current = '';
+1109
+  sections.forEach(s => {
+1110
+    const sTop = s.getBoundingClientRect().top;
+1111
+    if (sTop <= 120) current = s.id;
+1112
+  });
+1113
+  navLinks.forEach(a => {
+1114
+    a.classList.remove('active');
+1115
+    if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+1116
+  });
+1117
+}
+1118
+window.addEventListener('scroll', setActive, { passive: true });
+1119
+ 
+1120
+// ── SCROLL REVEAL ──
+1121
+const observer = new IntersectionObserver(entries => {
+1122
+  entries.forEach(e => {
+1123
+    if (e.isIntersecting) {
+1124
+      e.target.classList.add('visible');
+1125
+      // stagger timeline items
+1126
+      if (e.target.classList.contains('timeline')) {
+1127
+        e.target.querySelectorAll('.tl-item').forEach((el, i) => {
+1128
+          setTimeout(() => el.classList.add('visible'), i * 120);
+1129
+        });
+1130
+      }
+1131
+    }
+1132
+  });
+1133
+}, { threshold: 0.08 });
+1134
+ 
+1135
+document.querySelectorAll('.reveal, .timeline').forEach(el => observer.observe(el));
+1136
+// Timeline items individually too
+1137
+document.querySelectorAll('.tl-item').forEach(el => observer.observe(el));
+1138
+</script>
+1139
 </body>
+1140
 </html>
