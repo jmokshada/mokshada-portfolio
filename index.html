@@ -677,6 +677,158 @@ footer a:hover { color: var(--gold-lt); }
 }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
+/* ── HERO IMPACT LINE ── */
+.hero-impact {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.7;
+  max-width: 580px;
+  margin-bottom: 32px;
+  letter-spacing: 0.01em;
+  border-left: 2px solid rgba(201,149,26,0.4);
+  padding-left: 14px;
+}
+
+/* ── ABOUT BLOCKS ── */
+.about-block { margin-bottom: 26px; }
+.about-block:last-child { margin-bottom: 0; }
+.about-block-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.about-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.about-bullets li {
+  font-size: 14.5px;
+  color: var(--muted);
+  line-height: 1.65;
+  padding-left: 16px;
+  position: relative;
+}
+.about-bullets li::before {
+  content: '›';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.about-bullets li strong { color: var(--text); font-weight: 600; }
+.about-metrics li { font-size: 14px; }
+.about-metrics li strong { color: var(--navy); }
+
+/* ── PROJECT PSI FORMAT ── */
+.psi-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 4px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 14px;
+}
+.psi-block {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.psi-block:last-child { border-bottom: none; }
+.psi-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  min-width: 62px;
+  flex-shrink: 0;
+  padding-top: 1px;
+}
+.psi-text {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.psi-impact { background: rgba(201,149,26,0.04); }
+.psi-impact .psi-label { color: var(--gold); }
+.psi-impact .psi-text { color: var(--text); font-weight: 500; }
+
+/* ── METRIC CHIPS ── */
+.metric-chips {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 4px;
+}
+.metric-chip {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold);
+  border-radius: 6px;
+  padding: 10px 14px;
+  transition: box-shadow var(--transition);
+}
+.metric-chip:hover { box-shadow: var(--shadow); }
+.chip-num {
+  font-family: 'Lora', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.chip-lbl {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+/* ── DIM TAGS & CORE BADGE ── */
+.tag.dim-tag {
+  opacity: 0.55;
+  font-weight: 400;
+}
+.skill-group:hover .tag.dim-tag { opacity: 0.75; }
+.core-badge {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--gold);
+  color: var(--navy);
+  padding: 2px 7px;
+  border-radius: 3px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+/* ── EXPERIENCE IMPACT SNAPSHOT ── */
+.tl-impact {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gold);
+  background: rgba(201,149,26,0.06);
+  border: 1px solid rgba(201,149,26,0.18);
+  border-radius: 6px;
+  padding: 8px 14px;
+  margin-bottom: 14px;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+}
+
 /* ── ACHIEVEMENTS ── */
 .achievements-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .ach-card {
@@ -781,7 +933,8 @@ footer a:hover { color: var(--gold-lt); }
         <span class="title-badge">Technical Project Manager</span>
         <span class="title-badge">Business Analyst</span>
       </div>
-      <p class="hero-desc">Delivering GenAI applications, ML systems, and enterprise platforms across Travel, Finance, HR Tech, and Infrastructure. Hands-on from discovery and Figma prototypes to sprint delivery and go-to-market.</p>
+      <p class="hero-desc">AI Product Manager driving GenAI from concept to deployed products — with measurable business impact.</p>
+      <p class="hero-impact">Saved ~6 hrs/booking on an AI travel platform · Reduced complaint misrouting 30%+ at a multinational bank · Governed 80+ projects at Persistent Systems · Building 3 GenAI products toward B2B launch</p>
       <div class="hero-stats">
         <div class="hero-stat"><div class="stat-num">4+</div><div class="stat-lbl">Years experience</div></div>
         <div class="hero-stat"><div class="stat-num">5+</div><div class="stat-lbl">AI/ML solutions delivered</div></div>
@@ -802,10 +955,36 @@ footer a:hover { color: var(--gold-lt); }
       </div>
       <div class="about-grid">
         <div class="about-text reveal">
-          <p>I'm an AI Product Manager and Technical PM who is equally comfortable writing a PRD, building a Figma prototype for client sign-off, running a sprint, or integrating a GenAI API. My work spans <strong>enterprise SaaS, GenAI automation, data dashboards, and IT infrastructure</strong> for global clients.</p>
-          <p>I established <strong>Pollen.AI</strong> — Bee Logical's AI product division — and am currently driving three products (Smart HR, Policy Bot, Project Insight) from validated PoCs into full-fledged enterprise-ready products. I use AI tools daily — ChatGPT, Claude, Gemini, Perplexity — not just to talk about GenAI, but to actually move work faster.</p>
-          <p>As a PM, I believe great product thinking is <strong>domain-agnostic</strong>. While my core experience is in AI and IT, I'm actively open to roles across <strong>Healthcare, Biotech, Fintech, GRC, and Finance</strong> — sectors where AI is reshaping how products are built and delivered.</p>
-          <p>Currently open to <strong>AI PM, Technical PM, and Senior BA roles</strong> globally — including research collaborations and doctoral opportunities at the intersection of AI, product, and human-computer interaction.</p>
+          <div class="about-block">
+            <div class="about-block-label">Who I am</div>
+            <p>AI Product Manager and Technical PM with 4+ years delivering GenAI applications, enterprise SaaS, data dashboards, and IT infrastructure for global clients. I established <strong>Pollen.AI</strong> — Bee Logical's AI product division — and use ChatGPT, Claude, Gemini, and Perplexity daily to move work faster, not just talk about AI.</p>
+          </div>
+          <div class="about-block">
+            <div class="about-block-label">What I do</div>
+            <ul class="about-bullets">
+              <li>Own full product lifecycle — discovery, PRD, Figma wireframes, backlog, sprint delivery, GTM</li>
+              <li>Facilitate Scrum ceremonies: sprint planning, reviews, retrospectives, grooming, refinement</li>
+              <li>Bridge stakeholders and engineering across 3–4 concurrent client projects simultaneously</li>
+              <li>Drive AI integration — GenAI, NLP, LLMs, RPA — into real enterprise workflows</li>
+              <li>Open to PM, Technical PM, BA roles across AI/IT, Healthcare, Fintech, GRC, Biotech, and Finance</li>
+            </ul>
+          </div>
+          <div class="about-block">
+            <div class="about-block-label">Also exploring</div>
+            <ul class="about-bullets">
+              <li>Research collaborations and doctoral opportunities at the intersection of AI, product systems, and human-computer interaction</li>
+            </ul>
+          </div>
+          <div class="about-block">
+            <div class="about-block-label">Key outcomes</div>
+            <div class="metric-chips">
+              <div class="metric-chip"><div class="chip-num">~6 hrs</div><div class="chip-lbl">saved per enterprise booking (IncBuddy AI)</div></div>
+              <div class="metric-chip"><div class="chip-num">18%</div><div class="chip-lbl">travel cost reduction via approval automation</div></div>
+              <div class="metric-chip"><div class="chip-num">30%+</div><div class="chip-lbl">complaint misrouting cut (NLP classifier, bank)</div></div>
+              <div class="metric-chip"><div class="chip-num">40%</div><div class="chip-lbl">less reporting effort across 80–105 projects</div></div>
+              <div class="metric-chip"><div class="chip-num">20%</div><div class="chip-lbl">manual effort reduced via GenAI in IBM PIM</div></div>
+            </div>
+          </div>
         </div>
         <div class="about-meta reveal">
           <div class="meta-item"><div class="meta-key">Location</div><div class="meta-val">Pune / Indore — Open to Hybrid/WFO across India<br/><span style="font-size:12px;color:var(--muted)">Remote only for Delhi · Noida · Gurgaon</span></div></div>
@@ -824,33 +1003,33 @@ footer a:hover { color: var(--gold-lt); }
       </div>
       <div class="skills-grid">
         <div class="skill-group reveal">
-          <div class="skill-group-name">Product Management</div>
+          <div class="skill-group-name">Product Management <span class="core-badge">Core</span></div>
           <div class="tags">
             <span class="tag highlight-tag">Roadmapping</span>
             <span class="tag highlight-tag">PRD Authoring</span>
-            <span class="tag">User Stories & AC</span>
-            <span class="tag">Backlog Prioritization</span>
-            <span class="tag">OKRs</span>
-            <span class="tag">Go-to-Market</span>
-            <span class="tag">Impact Analysis</span>
-            <span class="tag">Discovery & Req. Gathering</span>
-            <span class="tag">Persona UX</span>
-            <span class="tag">Data Governance</span>
+            <span class="tag highlight-tag">User Stories & AC</span>
+            <span class="tag highlight-tag">Backlog Prioritization</span>
+            <span class="tag highlight-tag">Go-to-Market</span>
+            <span class="tag dim-tag">OKRs</span>
+            <span class="tag dim-tag">Impact Analysis</span>
+            <span class="tag dim-tag">Discovery & Req. Gathering</span>
+            <span class="tag dim-tag">Persona UX</span>
+            <span class="tag dim-tag">Data Governance</span>
           </div>
         </div>
         <div class="skill-group reveal">
-          <div class="skill-group-name">Agile & Delivery</div>
+          <div class="skill-group-name">Agile & Delivery <span class="core-badge">Core</span></div>
           <div class="tags">
             <span class="tag highlight-tag">Scrum Master</span>
-            <span class="tag">Kanban</span>
-            <span class="tag">Sprint Planning</span>
-            <span class="tag">Sprint Review</span>
-            <span class="tag">Retrospectives</span>
-            <span class="tag">Backlog Grooming</span>
-            <span class="tag">Refinement</span>
-            <span class="tag">Azure DevOps</span>
-            <span class="tag">JIRA</span>
-            <span class="tag">MS Project</span>
+            <span class="tag highlight-tag">Sprint Planning</span>
+            <span class="tag highlight-tag">Azure DevOps</span>
+            <span class="tag highlight-tag">JIRA</span>
+            <span class="tag dim-tag">Kanban</span>
+            <span class="tag dim-tag">Sprint Review</span>
+            <span class="tag dim-tag">Retrospectives</span>
+            <span class="tag dim-tag">Backlog Grooming</span>
+            <span class="tag dim-tag">Refinement</span>
+            <span class="tag dim-tag">MS Project</span>
           </div>
         </div>
         <div class="skill-group reveal">
@@ -915,6 +1094,7 @@ footer a:hover { color: var(--gold-lt); }
           <div class="tl-period">Nov 2024 — Present</div>
           <div class="tl-org">Bee Logical Software Solutions</div>
           <div class="tl-role">Technical Project Manager · AI Products & Enterprise SaaS Delivery · Pune</div>
+          <div class="tl-impact">Built AI product division from zero · Shipped 2 live SaaS products · 3 GenAI products in productisation · ~6 hrs/booking saved · ~18% cost reduction</div>
           <ul class="tl-bullets">
             <li>Established and led <strong>Pollen.AI</strong> — Bee Logical's AI product division — building Smart HR, Policy Bot, and Project Insight from zero; all three in active productisation phase targeting market launch.</li>
             <li>Managed <strong>3–4 concurrent enterprise client projects</strong>; led end-to-end requirement gathering using Figma wireframes and Draw.io process flows to secure client approval before development.</li>
@@ -929,6 +1109,7 @@ footer a:hover { color: var(--gold-lt); }
           <div class="tl-period">Jul 2024 — Oct 2024</div>
           <div class="tl-org">Persistent Systems Limited</div>
           <div class="tl-role">Systems Engineer · Acting: Business Analyst & Product Manager — IBM MDM/PIM · Hinjewadi, Pune</div>
+          <div class="tl-impact">20% manual effort reduction via GenAI integration · CXO dashboards deployed across 3 client teams · BRDs and full adoption documentation delivered</div>
           <ul class="tl-bullets">
             <li>Customised IBM PIM for multiple client portfolios; integrated GenAI models to automate data enrichment and approval workflows, reducing manual effort by <strong>20%</strong>; transitioned to pursue AI product opportunity at Bee Logical.</li>
             <li>Built Power BI and GCP Vertex AI dashboards for CXO-level operational and security insights; authored BRDs, functional specs, and training documentation enabling adoption across 3 client teams.</li>
@@ -939,6 +1120,7 @@ footer a:hover { color: var(--gold-lt); }
           <div class="tl-period">Jul 2022 — Jun 2024</div>
           <div class="tl-org">Persistent Systems Limited</div>
           <div class="tl-role">Systems Engineer · Acting: Project Manager & Scrum Master — IT PMO · Hinjewadi, Pune</div>
+          <div class="tl-impact">6 global projects delivered on time · 80–105 projects tracked in real time · 40% less reporting effort · 35% better delivery predictability</div>
           <ul class="tl-bullets">
             <li>Managed <strong>6 concurrent global infrastructure and application projects</strong> (CISCO, NterOne vendors); ran sprint planning, reviews, retrospectives, and impact analysis — all delivered within scope, timeline, and budget.</li>
             <li>Built PM dashboards covering <strong>80–105 projects</strong> for CXO leadership; automated data flows in Power BI and SQL, cutting reporting time by <strong>40%</strong>.</li>
@@ -950,6 +1132,7 @@ footer a:hover { color: var(--gold-lt); }
           <div class="tl-period">Feb 2022 — Jun 2022</div>
           <div class="tl-org">Persistent Systems Limited</div>
           <div class="tl-role">Systems Engineer Intern · AI/ML Development & Project Coordination</div>
+          <div class="tl-impact">30%+ complaint misrouting reduction · End-to-end ML pipeline shipped · 2 AI systems built and deployed</div>
           <ul class="tl-bullets">
             <li>Built AI ticket classification pipeline (BERT + SVM/KNN, Python, Flask, MySQL) for a multinational bank — reduced complaint misrouting by <strong>30%+</strong>.</li>
             <li>Contributed to real-time object detection system (YOLO v3, OpenCV) for spatial positioning feedback.</li>
@@ -965,6 +1148,87 @@ footer a:hover { color: var(--gold-lt); }
         <h2 class="section-title">Products I've owned & shipped</h2>
       </div>
       <div class="projects-grid">
+        <div class="project-card reveal">
+          <div class="project-num">Project 01</div>
+          <div class="project-name">Pollen.AI</div>
+          <div class="project-domain">AI Product Division · HRTech · Compliance · PMO</div>
+          <div class="psi-grid">
+            <div class="psi-block"><div class="psi-label">Problem</div><div class="psi-text">No structured AI practice or products at Bee Logical — scattered automation attempts with no roadmap or ownership.</div></div>
+            <div class="psi-block"><div class="psi-label">Solution</div><div class="psi-text">Established the AI division from zero. Built and validated 3 products: Smart HR (AI recruitment), Policy Bot (compliance automation), Project Insight (AI PM intelligence).</div></div>
+            <div class="psi-block psi-impact"><div class="psi-label">Impact</div><div class="psi-text">~30% effort reduction in PoC phase · 3 products entering productisation · B2B enterprise GTM in progress</div></div>
+          </div>
+          <div class="tags" style="margin-top:16px"><span class="tag">GenAI</span><span class="tag">LLMs</span><span class="tag">PRD</span><span class="tag">Figma</span><span class="tag">Product Lead</span></div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-num">Project 02</div>
+          <div class="project-name">IncBuddy — Nova AI</div>
+          <div class="project-domain">AI SaaS · Travel Tech · Enterprise B2B</div>
+          <div class="psi-grid">
+            <div class="psi-block"><div class="psi-label">Problem</div><div class="psi-text">Enterprise employees spending 6+ hours per booking coordinating flights, hotels, visas across multiple platforms with no policy enforcement or cost visibility.</div></div>
+            <div class="psi-block"><div class="psi-label">Solution</div><div class="psi-text">Defined PRD, built Figma prototypes, and owned the backlog for a conversational AI booking agent with policy/approval engine and real-time finance dashboard.</div></div>
+            <div class="psi-block psi-impact"><div class="psi-label">Impact</div><div class="psi-text">~6 hrs saved per booking · 18% cost reduction per trip · 3× faster approval cycles</div></div>
+          </div>
+          <div class="tags" style="margin-top:16px"><span class="tag">GenAI</span><span class="tag">NLP</span><span class="tag">Figma</span><span class="tag">Azure DevOps</span><span class="tag">Product Owner</span></div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-num">Project 03</div>
+          <div class="project-name">Telosa — AI Reputation SaaS</div>
+          <div class="project-domain">AI SaaS · Brand Management · NLP</div>
+          <div class="psi-grid">
+            <div class="psi-block"><div class="psi-label">Problem</div><div class="psi-text">Clients manually managing hundreds of customer reviews across platforms — slow, inconsistent, no brand tone control.</div></div>
+            <div class="psi-block"><div class="psi-label">Solution</div><div class="psi-text">Managed full backlog for AI review platform with NLP sentiment analysis, automated response generation, and brand tone controls. Coordinated UAT and GTM prep.</div></div>
+            <div class="psi-block psi-impact"><div class="psi-label">Impact</div><div class="psi-text">Automated response at scale · Improved brand engagement scores · Shipped to enterprise clients</div></div>
+          </div>
+          <div class="tags" style="margin-top:16px"><span class="tag">NLP</span><span class="tag">Sentiment Analysis</span><span class="tag">SaaS</span><span class="tag">UAT</span></div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-num">Project 04</div>
+          <div class="project-name">CXO / PMO Dashboards & IT Infra</div>
+          <div class="project-domain">Data Analytics · IT PMO · Infrastructure · Enterprise</div>
+          <div class="psi-grid">
+            <div class="psi-block"><div class="psi-label">Problem</div><div class="psi-text">Leadership had no real-time visibility across 80–105 concurrent projects. Manual reporting took days. Ageing infra creating security and reliability risks.</div></div>
+            <div class="psi-block"><div class="psi-label">Solution</div><div class="psi-text">Built automated CXO/PMO dashboards (Power BI, SQL). Coordinated 4 global CISCO infra projects — Security Posture, IT Infra Refresh, HJ DC Revamp, SDWAN deployment.</div></div>
+            <div class="psi-block psi-impact"><div class="psi-label">Impact</div><div class="psi-text">40% less reporting effort · 80–105 projects tracked in real time · Near-zero downtime on infra revamp</div></div>
+          </div>
+          <div class="tags" style="margin-top:16px"><span class="tag">Power BI</span><span class="tag">SQL</span><span class="tag">CISCO</span><span class="tag">SDWAN</span><span class="tag">Security</span></div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-num">Project 05</div>
+          <div class="project-name">AI Ticket Classifier</div>
+          <div class="project-domain">Applied ML · Banking / FinTech</div>
+          <div class="psi-grid">
+            <div class="psi-block"><div class="psi-label">Problem</div><div class="psi-text">Multinational bank manually triaging thousands of customer complaints daily — high misrouting rate, SLA breaches, and growing backlog.</div></div>
+            <div class="psi-block"><div class="psi-label">Solution</div><div class="psi-text">Built end-to-end NLP pipeline: BERT Sequence Classifier + SVM + KNN, deployed via Flask REST API with MySQL logging and live monitoring dashboard.</div></div>
+            <div class="psi-block psi-impact"><div class="psi-label">Impact</div><div class="psi-text">30%+ reduction in misrouting · &lt;1s classification per ticket · 10+ complaint categories automated</div></div>
+          </div>
+          <div class="tags" style="margin-top:16px"><span class="tag">Python</span><span class="tag">BERT</span><span class="tag">Flask</span><span class="tag">NLP</span><span class="tag">MySQL</span></div>
+          <a href="https://github.com/jmokshada/Ticket_Classification" target="_blank" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:12px;font-weight:600;color:var(--gold);text-decoration:none;border:1px solid rgba(201,149,26,0.3);padding:6px 14px;border-radius:5px;transition:all 0.2s;" onmouseover="this.style.background='rgba(201,149,26,0.08)'" onmouseout="this.style.background='transparent'">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            View on GitHub
+          </a>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-num">Project 06</div>
+          <div class="project-name">MORS — Mini Object Relocator System</div>
+          <div class="project-domain">Computer Vision · AI/ML · RGPV University Research</div>
+          <div class="psi-grid">
+            <div class="psi-block"><div class="psi-label">Problem</div><div class="psi-text">No affordable assistive tool for real-time voice-guided object location for visually impaired users.</div></div>
+            <div class="psi-block"><div class="psi-label">Solution</div><div class="psi-text">Built real-time object detection with YOLO v3 and R-CNN, paired with NLP-driven voice recognition and audio spatial feedback in Python.</div></div>
+            <div class="psi-block psi-impact"><div class="psi-label">Impact</div><div class="psi-text">Real-time detection with voice interface · University research project · Demonstrates applied AI depth</div></div>
+          </div>
+          <div class="tags" style="margin-top:16px"><span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">YOLO v3</span><span class="tag">NLP</span><span class="tag">Voice Recognition</span></div>
+          <a href="https://github.com/jmokshada/Mors-MiniObjectRelocatorSystem" target="_blank" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:12px;font-weight:600;color:var(--gold);text-decoration:none;border:1px solid rgba(201,149,26,0.3);padding:6px 14px;border-radius:5px;transition:all 0.2s;" onmouseover="this.style.background='rgba(201,149,26,0.08)'" onmouseout="this.style.background='transparent'">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            View on GitHub
+          </a>
+        </div>
+      </div>
+    </section>
         <div class="project-card reveal">
           <div class="project-num">Project 01</div>
           <div class="project-name">Pollen.AI</div>
@@ -1136,13 +1400,12 @@ footer a:hover { color: var(--gold-lt); }
     <section class="section section-alt" id="contact">
       <div class="section-header reveal">
         <div class="section-label">07 · Contact</div>
-        <h2 class="section-title">Let's work together</h2>
+        <h2 class="section-title">Let's build something that ships</h2>
       </div>
       <div class="contact-grid reveal">
         <div class="contact-text">
-          <p>I'm actively looking for <strong>AI Product Manager, Technical Project Manager, and Senior BA roles</strong> — in AI/IT, Healthcare, Fintech, GRC, Biotech, or Finance. Open to industry pivots where AI is reshaping how products are built.</p>
-          <p>Also open to <strong>global research collaborations and doctoral opportunities</strong> at the intersection of AI, product thinking, and human-computer interaction.</p>
-          <p>Based in Pune / Indore. Open to Bengaluru and fully Remote. Feel free to reach out — I typically respond within 24 hours.</p>
+          <p>I'm actively looking for <strong>AI Product Manager, Technical Project Manager, and Senior BA roles</strong> — at companies where AI is being built into real products, not just talked about. Open across AI/IT, Healthcare, Fintech, GRC, Biotech, and Finance.</p>
+          <p>If you're hiring someone who can take a product from whiteboard to production — write the PRD, run the sprints, own the backlog, and ship — <strong>let's talk.</strong></p>
         </div>
         <div class="contact-links-grid">
           <a href="mailto:Mokujoshi2002@gmail.com" class="contact-link">
